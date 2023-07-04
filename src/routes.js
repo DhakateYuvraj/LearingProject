@@ -48,6 +48,11 @@ const routes = [
     routes: [
       {
         exact: true,
+        path: '/usersAndRoles',
+        component: lazy(() => import('./views/usersAndRoles/UsersAndRoles'))
+      },
+      {
+        exact: true,
         path: '/dashboard',
         component: lazy(() => import('./views/dashboard/DashDefault'))
       },

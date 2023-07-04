@@ -1,6 +1,21 @@
 const menuItems = {
   items: [
     {
+      id: 'usersAndRoles',
+      title: 'Users & Roles',
+      type: 'group',
+      icon: 'icon-navigation',
+      children: [
+        {
+          id: 'usersAndRoles',
+          title: 'Users & Roles',
+          type: 'item',
+          url: '/usersAndRoles',
+          icon: 'feather icon-home'
+        }
+      ]
+    },
+    {
       id: 'navigation',
       title: 'Navigation',
       type: 'group',
@@ -11,7 +26,7 @@ const menuItems = {
           title: 'Dashboard',
           type: 'item',
           url: '/dashboard',
-          icon: 'feather icon-home',
+          icon: 'feather icon-home'
         }
       ]
     },
@@ -27,7 +42,6 @@ const menuItems = {
           type: 'collapse',
           icon: 'feather icon-box',
           children: [
-            
             {
               id: 'button',
               title: 'Button',
@@ -51,7 +65,7 @@ const menuItems = {
               title: 'Pagination',
               type: 'item',
               url: '/basic/pagination'
-          },
+            },
             {
               id: 'collapse',
               title: 'Collapse',
@@ -85,14 +99,14 @@ const menuItems = {
           title: 'Form Elements',
           type: 'item',
           url: '/forms/form-basic',
-          icon: 'feather icon-file-text',
+          icon: 'feather icon-file-text'
         },
         {
           id: 'tables',
           title: 'Table',
           type: 'item',
           url: '/tables/bootstrap',
-          icon: 'feather icon-server',
+          icon: 'feather icon-server'
         }
       ]
     },
@@ -132,7 +146,7 @@ const menuItems = {
           badge: {
             title: 'New',
             type: 'label-danger'
-        },
+          },
           children: [
             {
               id: 'signup',
@@ -142,7 +156,7 @@ const menuItems = {
               target: true,
               breadcrumbs: false
             },
-            
+
             {
               id: 'signin',
               title: 'Sign in',
