@@ -45,7 +45,7 @@ const Users = () => {
   return (
     <>
       <div className="d-flex justify-content-sm-end">
-        <Button variant="outline-primary m-0 mb-2" size="sm">
+        <Button variant="primary m-0 mb-2" size="sm">
           <span className="feather icon-plus" /> User
         </Button>
       </div>
