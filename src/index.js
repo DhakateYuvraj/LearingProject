@@ -11,6 +11,8 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './store';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
 
 ReactDOM.render(
   <Provider store={store}>

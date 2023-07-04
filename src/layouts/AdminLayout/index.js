@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useRef } from 'react';
 
 import Navigation from './Navigation';
 import NavBar from './NavBar';
-import Breadcrumb from './Breadcrumb';
 import Configuration from './Configuration';
 
 import useWindowSize from '../../hooks/useWindowSize';
@@ -57,10 +56,7 @@ const AdminLayout = ({ children }) => {
       <div className="pcoded-main-container">
         <div className={mainClass.join(' ')}>
           <div className="pcoded-content">
-            <div className="pcoded-inner-content">
-              <Breadcrumb />
-              {children}
-            </div>
+            <div className="pcoded-inner-content">{children}</div>
           </div>
         </div>
       </div>

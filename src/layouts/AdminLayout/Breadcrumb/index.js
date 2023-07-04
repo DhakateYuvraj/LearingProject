@@ -39,6 +39,7 @@ const Breadcrumb = () => {
   let title = '';
 
   if (main && main.type === 'collapse') {
+    console.log('asdasdasdasdasdasdasd');
     mainContent = (
       <ListGroup.Item as="li" bsPrefix=" " className="breadcrumb-item">
         <Link to="#">{main.title}</Link>
@@ -47,6 +48,7 @@ const Breadcrumb = () => {
   }
 
   if (item && item.type === 'item') {
+    console.log('itemitemitemitemitemitem');
     title = item.title;
     itemContent = (
       <ListGroup.Item as="li" bsPrefix=" " className="breadcrumb-item">
@@ -56,13 +58,10 @@ const Breadcrumb = () => {
 
     if (item.breadcrumbs !== false) {
       breadcrumbContent = (
-        <div className="page-header">
+        <div className="page-header mx-4">
           <div className="page-block">
             <div className="row align-items-center">
               <div className="col-md-12">
-                <div className="page-header-title">
-                  <h5 className="m-b-10">{title}</h5>
-                </div>
                 <ListGroup as="ul" bsPrefix=" " className="breadcrumb">
                   <ListGroup.Item as="li" bsPrefix=" " className="breadcrumb-item">
                     <Link to="/">
@@ -72,6 +71,9 @@ const Breadcrumb = () => {
                   {mainContent}
                   {itemContent}
                 </ListGroup>
+                <div className="page-header-title">
+                  <h5 className="m-b-10">{title}</h5>
+                </div>
               </div>
             </div>
           </div>
@@ -81,6 +83,7 @@ const Breadcrumb = () => {
 
     document.title = title + BASE_TITLE;
   }
+  console.log('breadcrumbContent', breadcrumbContent);
 
   return <React.Fragment>{breadcrumbContent}</React.Fragment>;
 };

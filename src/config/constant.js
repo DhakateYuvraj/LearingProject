@@ -1,5 +1,5 @@
-export const BASENAME = '/'; // don't add '/' at end off BASENAME
-export const BASE_URL = '/';
+export const BASENAME = ''; // don't add '/' at end off BASENAME
+export const BASE_URL = '';
 export const BASE_TITLE = 'SMS';
 
 export const CONFIG = {

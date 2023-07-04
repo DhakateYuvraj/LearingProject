@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import NavLeft from './NavLeft';
 import NavRight from './NavRight';
+import Breadcrumb from './../Breadcrumb';
 
 import { ConfigContext } from '../../../contexts/ConfigContext';
 import * as actionType from '../../../store/actions';
@@ -54,7 +55,7 @@ const NavBar = () => {
                 </Link> */}
       </div>
       <div className={collapseClass.join(' ')}>
-        <NavLeft />
+        <Breadcrumb />
         <NavRight />
       </div>
     </React.Fragment>
