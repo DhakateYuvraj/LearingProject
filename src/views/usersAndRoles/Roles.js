@@ -1,6 +1,5 @@
 import React from 'react';
-import BootstrapTable from 'react-bootstrap-table-next';
-import paginationFactory from 'react-bootstrap-table2-paginator';
+import Table from './../../components/Table';
 
 const Roles = () => {
   const rolesData = [
@@ -36,12 +35,7 @@ const Roles = () => {
     }
   ];
 
-  const selectRow = {
-    mode: 'checkbox',
-    clickToSelect: true
-  };
-
-  return <BootstrapTable keyField="id" data={rolesData} columns={columns} pagination={paginationFactory()} selectRow={selectRow} />;
+  return <Table tableData={rolesData} tableHeaders={columns} />;
 };
 
 export default Roles;
