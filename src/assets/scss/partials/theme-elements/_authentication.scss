@@ -170,11 +170,11 @@
 /* image varient start */
 @keyframes floating {
   from {
-    transform: rotate(0deg) translate(-10px) rotate(0deg);
+    transform: rotate(0deg) translate(-20px) rotate(0deg);
   }
 
   to {
-    transform: rotate(360deg) translate(-10px) rotate(-360deg);
+    transform: rotate(360deg) translate(-20px) rotate(-360deg);
   }
 }
 /**====== Authentication css end ======**/

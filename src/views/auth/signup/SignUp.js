@@ -1,12 +1,11 @@
 import React from 'react';
 import { Card, Row, Col } from 'react-bootstrap';
-import { NavLink, Link } from 'react-router-dom';
-
+import { NavLink } from 'react-router-dom';
 import Breadcrumb from '../../../layouts/AdminLayout/Breadcrumb';
 
-const SignUp1 = () => {
+const SignUp = () => {
   return (
-    <React.Fragment>
+    <>
       <Breadcrumb />
       <div className="auth-wrapper">
         <div className="auth-content">
@@ -33,12 +32,7 @@ const SignUp1 = () => {
                   <div className="input-group mb-4">
                     <input type="password" className="form-control" placeholder="Password" />
                   </div>
-                  <div className="custom-control custom-checkbox  text-left mb-4 mt-2">
-                    <input type="checkbox" className="custom-control-input" id="customCheck1" defaultChecked={false} />
-                    <label className="custom-control-label" htmlFor="customCheck1">
-                      Send me the <Link to="#"> Newsletter</Link> weekly.
-                    </label>
-                  </div>
+                  <p className="mb-3 mx-n3">Sign-up requires admin verification for login access.</p>
                   <button className="btn btn-primary mb-4">Sign up</button>
                   <p className="mb-2">
                     Already have an account?{' '}
@@ -52,8 +46,8 @@ const SignUp1 = () => {
           </Card>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
-export default SignUp1;
+export default SignUp;

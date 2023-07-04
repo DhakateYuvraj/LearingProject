@@ -30,20 +30,17 @@ const routes = [
   {
     path: '/',
     exact: true,
-    component: () => {
-      console.log('here')
-    return <h1>decide whre to land</h1>
-    }
+    component: lazy(() => import('./views/auth/handleRedirect/HandleRedirect'))
   },
   {
     exact: true,
     path: '/signin',
-    component: lazy(() => import('./views/auth/signin/SignIn1'))
+    component: lazy(() => import('./views/auth/signin/SignIn'))
   },
   {
     exact: true,
     path: '/signup',
-    component: lazy(() => import('./views/auth/signup/SignUp1'))
+    component: lazy(() => import('./views/auth/signup/SignUp'))
   },
   {
     path: '*',
@@ -117,7 +114,9 @@ const routes = [
       {
         path: '/',
         exact: true,
-        component: () => {<Redirect to={BASE_URL} />}
+        component: () => {
+          <Redirect to={BASE_URL} />;
+        }
       }
     ]
   }
