@@ -1,5 +1,62 @@
 @import 'assets/scss/style.scss';
 
+:root {
+  --chart-border: #d9d9d9;
+  --white: #ffffff;
+  --gray: #a0a0a7;
+  --gray-placeholder: #cac8c8;
+  --gray-dark: #4c4b58;
+  --gray-darker: #24242e;
+  --gray-light: #e7e7e9;
+  --gray-lighter: #efeef1;
+  --light-gray: #f6f6f8;
+  --gray-lightest: #f9f9fb;
+  --light-grayish-blue: #dee2e6;
+  --primary: #1dc4e9;
+  --primary-lighter: #a8e1ee;
+  --primary-light: #62c5db;
+  --primary-dark: #00cffe;
+  --secondary: #505a73;
+  --secondary-darker: #2a2f3c;
+  --secondary-lighter: #dae3fc;
+  --secondary-light: #697696;
+  --secondary-dark: #3a4254;
+  --success: #76bc6a;
+  --success-light: #e0fac7;
+  --success-dark: var(--success-dark);
+  --error-med-dark: #9d1c1a;
+  --info: #4171c3;
+  --info-light: #c8dafa;
+  --info-dark: var(--info-dark);
+  --warning: #dba129;
+  --warning-light: #fdeac4;
+  --danger: #db2b29;
+  --danger-light: #fdcdc4;
+  --danger-dark: #2a2f3c;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --pattens-blue: #deecff;
+  --blueish-gray: #abc2ea;
+  --pale-blue: #c4cdda;
+  --green: #28a745;
+  --orange: #e15d29;
+  --bg-border-color: #e9ecef;
+  --main-bg-color: #f9f9fb;
+  --header-bg-color: #fcfcfd;
+  --header-border-color: #e7e7ef;
+  --sidebar-bg: #09175a;
+  --navbar-bg: #f3f3f6;
+  --navbar-link-border: #bbc6d0;
+  --data-widget-bg: lightblue;
+  --l: 10%;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --heading-font: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --bg-message-box: #f6f9fb;
+}
+
 .nav-outside.mob-backdrop {
   &.mob-fixed .pcoded-navbar {
     z-index: 1032;
@@ -429,4 +486,7 @@ td {
     border-bottom: 4px solid \9;
     content: '';
   }
+}
+input[type='checkbox'] {
+  accent-color: var(--primary);
 }
