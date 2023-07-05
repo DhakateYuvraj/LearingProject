@@ -1,0 +1,153 @@
+.react-bootstrap-table-pagination > div:first-child {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin-bottom: auto;
+}
+.react-bootstrap-table-pagination-total {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.react-bootstrap-table-pagination-list.react-bootstrap-table-pagination-list-hidden {
+  display: none;
+}
+
+.react-bootstrap-table-pagination-list {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.react-bootstrap-table-pagination {
+  .page-link {
+    color: var(--primary);
+  }
+  .react-bs-table-sizePerPage-dropdown {
+    .dropdown-menu {
+      .dropdown-item {
+        padding: 0;
+        a {
+          cursor: pointer;
+          padding: 0.25rem 1em;
+          display: block;
+        }
+      }
+    }
+  }
+
+  .page-link:hover {
+    color: var(--primary);
+  }
+
+  .page-item.active .page-link {
+    z-index: 0;
+    color: #fff;
+    background-color: var(--primary);
+    border-color: var(--primary);
+  }
+}
+
+.react-bootstrap-table {
+  .caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    border-top: 5px dashed;
+    border-top: 5px solid \9;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+  }
+  .table-bordered td,
+  .table-bordered th {
+    border: 0;
+    border-bottom: 1px solid #dee2e6;
+  }
+}
+
+.react-bootstrap-table {
+  .dropup {
+    height: 7px;
+    .caret {
+      border-top: 0;
+      border-bottom: 5px dashed;
+      border-bottom: 5px solid \9;
+      content: '';
+    }
+  }
+
+  .navbar-fixed-bottom {
+    .dropdown {
+      .caret {
+        border-top: 0;
+        border-bottom: 5px dashed;
+        border-bottom: 5px solid \9;
+        content: '';
+      }
+    }
+  }
+  th {
+    .order {
+      > .dropdown {
+        > .caret {
+          margin: 0px;
+        }
+      }
+      > .dropup {
+        > .caret {
+          margin: 0px;
+          border-bottom: 5px dashed;
+        }
+      }
+    }
+  }
+}
+
+.react-bootstrap-table {
+  th {
+    .order {
+      display: inline-flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: flex-end;
+      margin-left: 10px;
+    }
+  }
+}
+.react-bootstrap-table-sort-order {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 10px;
+  &.dropup {
+    top: -5px;
+  }
+}
+.dropdown-toggle::after {
+  display: none !important;
+}
+.react-bs-table-sizePerPage-dropdown {
+  .btn-secondary {
+    color: var(--gray-dark) !important;
+    background-color: var(--white) !important;
+    border-color: var(--gray-light) !important;
+    :not(:disabled):not(.disabled):active,
+    &:active:focus {
+      box-shadow: none;
+    }
+  }
+  .dropdown-menu {
+    min-width: 4rem;
+    position: absolute;
+    transform: translate3d(0px, -156px, 0px);
+    top: 0px;
+    left: 0px;
+    will-change: transform;
+  }
+}
+
+.custom__field {
+  :hover {
+    cursor: move;
+  }
+}

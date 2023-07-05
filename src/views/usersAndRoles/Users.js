@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Table from './../../components/Table';
 
@@ -35,6 +35,27 @@ const columns = [
   }
 ];
 const Users = () => {
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pageLimit, setPageLimit] = useState(10);
+
+  const selectRow = {
+    mode: 'checkbox',
+    clickToSelect: false,
+    selected: [],
+
+    onSelect: (row, isSelect, rowIndex, e) => {
+      console.log('onSelect', row, isSelect, rowIndex, e);
+    },
+    onSelectAll: (isSelect, rows) => {
+      console.log('onSelectAll', isSelect, rows);
+    }
+  };
+
+  const handleTableChange = async (type, { page, sizePerPage }) => {
+    setPageLimit(sizePerPage);
+    setPageNumber(page);
+  };
+
   return (
     <>
       <div className="d-flex justify-content-sm-end">
@@ -42,7 +63,27 @@ const Users = () => {
           <span className="feather icon-plus" /> User
         </Button>
       </div>
-      <Table tableData={usersData} tableHeaders={columns} />
+      <Table
+        keyField="id"
+        tableData={usersData}
+        tableHeader={columns}
+        isRemote={false}
+        totalSize={99}
+        onPageChangeFun={handleTableChange}
+        activePage={pageNumber}
+        sizePerPage={pageLimit}
+        wrapperClasses="users-table"
+        rowClasses={(row) => {
+          return `user-row-${row.id}`;
+        }}
+        defaultSorted={[
+          {
+            dataField: columns[0].dataField,
+            order: 'asc'
+          }
+        ]}
+        selectRow={selectRow}
+      />
     </>
   );
 };

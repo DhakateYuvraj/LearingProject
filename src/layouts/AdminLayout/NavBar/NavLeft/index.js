@@ -23,8 +23,6 @@ const NavLeft = () => {
 
   return (
     <>
-      <p>Title</p>
-      {/*
       <ListGroup as="ul" bsPrefix=" " className="navbar-nav mr-auto">
         <ListGroup.Item as="li" bsPrefix=" " className={navItemClass.join(' ')}>
           <Dropdown alignRight={dropdownRightAlign}>
@@ -56,7 +54,6 @@ const NavLeft = () => {
           <NavSearch windowWidth={windowSize.width} />
         </ListGroup.Item>
       </ListGroup>
-     */}
     </>
   );
 };
