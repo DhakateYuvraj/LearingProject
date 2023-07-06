@@ -1,16 +1,38 @@
 const menuItems = {
   items: [
     {
-      id: 'usersAndRoles',
-      title: 'Users & Roles',
+      id: 'config',
+      title: 'Config',
       type: 'group',
       icon: 'icon-navigation',
       children: [
         {
-          id: 'usersAndRoles',
-          title: 'Users & Roles',
+          id: 'users',
+          title: 'Users',
           type: 'item',
-          url: '/usersAndRoles',
+          url: '/users',
+          icon: 'feather icon-home'
+        },
+        {
+          id: 'students',
+          title: 'Students',
+          type: 'item',
+          url: '/students',
+          icon: 'feather icon-home'
+        },
+        {
+          id: 'addStudent',
+          title: 'Add Student',
+          type: 'item',
+          url: '/students/add',
+          icon: 'feather icon-home',
+          isVisible: false
+        },
+        {
+          id: 'classRoom',
+          title: 'Class Rooms',
+          type: 'item',
+          url: '/classRooms',
           icon: 'feather icon-home'
         }
       ]

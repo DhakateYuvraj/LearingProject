@@ -37,6 +37,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-select": "^5.7.3",
     "react-toast-notifications": "^2.5.1",
     "react-trello": "^2.2.11",
     "recompose": "^0.30.0",

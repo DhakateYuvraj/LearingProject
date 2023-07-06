@@ -25,22 +25,24 @@ const NavItem = ({ layout, item }) => {
   }
 
   let subContent;
-  if (item.external) {
-    subContent = (
-      <a href={item.url} target="_blank" rel="noopener noreferrer">
-        <NavIcon items={item} />
-        {itemTitle}
-        <NavBadge items={item} />
-      </a>
-    );
-  } else {
-    subContent = (
-      <NavLink to={item.url} className="nav-link" exact={true} target={itemTarget}>
-        <NavIcon items={item} />
-        {itemTitle}
-        <NavBadge items={item} />
-      </NavLink>
-    );
+  if (item.isVisible !== false) {
+    if (item.external) {
+      subContent = (
+        <a href={item.url} target="_blank" rel="noopener noreferrer">
+          <NavIcon items={item} />
+          {itemTitle}
+          <NavBadge items={item} />
+        </a>
+      );
+    } else {
+      subContent = (
+        <NavLink to={item.url} className="nav-link" exact={true} target={itemTarget}>
+          <NavIcon items={item} />
+          {itemTitle}
+          <NavBadge items={item} />
+        </NavLink>
+      );
+    }
   }
   let mainContent = '';
   if (layout === 'horizontal') {

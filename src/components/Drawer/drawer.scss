@@ -2,6 +2,7 @@
   .drawer {
     border-left: 1px solid #e7e7e7;
     width: 38rem;
+    max-width: 100%;
     padding-top: 78px;
     flex-shrink: 0;
     background-color: #fff;
@@ -16,6 +17,7 @@
   }
   .drawer-container {
     width: 38rem;
+    max-width: 100%;
   }
   .backdrop {
     background-color: var(--sidebar-bg);

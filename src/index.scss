@@ -4,6 +4,8 @@
   --chart-border: #d9d9d9;
   --white: #ffffff;
   --gray: #a0a0a7;
+  --input-bg: #f4f7fa;
+  --input-border: #ced4da;
   --gray-placeholder: #cac8c8;
   --gray-dark: #4c4b58;
   --gray-darker: #24242e;
@@ -314,6 +316,7 @@ body.datta-rtl .pcoded-navbar.theme-horizontal .pcoded-inner-navbar > li.active:
   padding-left: 0.45rem;
 }
 .table {
+  min-width: 500px;
   .badge {
     margin-right: 0.25rem;
   }
@@ -489,4 +492,9 @@ td {
 }
 input[type='checkbox'] {
   accent-color: var(--primary);
+}
+.dark-placeholder {
+  [class*='-placeholder'] {
+    color: inherit;
+  }
 }

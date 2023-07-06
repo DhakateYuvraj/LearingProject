@@ -1,31 +1,38 @@
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import Table from './../../components/Table';
 import Drawer from './../../components/Drawer';
 import isEmpty from 'lodash/isEmpty';
 import './usersAndRoles.scss';
 import AddUser from './AddUser';
+import Select from './../../components/Select';
+
+const options = [
+  { value: 'role_1', label: 'Role_1' },
+  { value: 'role_2', label: 'Role 2' },
+  { value: 'role_3', label: 'Role 3' }
+];
 
 const usersData = [
-  { id: '1', name: '1' },
-  { id: '2', name: '2' },
-  { id: '3', name: '3' },
-  { id: '4', name: '4' },
-  { id: '5', name: '5' },
-  { id: '6', name: '6' },
-  { id: '7', name: '7' },
-  { id: '8', name: '8' },
-  { id: '9', name: '9' },
-  { id: '10', name: '10' },
-  { id: '11', name: '11' },
-  { id: '12', name: '12' },
-  { id: '13', name: '13' },
-  { id: '14', name: '14' },
-  { id: '15', name: '15' },
-  { id: '16', name: '16' },
-  { id: '17', name: '17' },
-  { id: '18', name: '18' },
-  { id: '19', name: '19' }
+  { id: '1', firstName: '1', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '2', firstName: '2', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '3', firstName: '3', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '4', firstName: '4', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '5', firstName: '5', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '6', firstName: '6', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '7', firstName: '7', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '8', firstName: '8', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '9', firstName: '9', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '10', firstName: '10', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '11', firstName: '11', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '12', firstName: '12', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '13', firstName: '13', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '14', firstName: '14', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '15', firstName: '15', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '16', firstName: '16', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '17', firstName: '17', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '18', firstName: '18', lastName: 'lastName', email: 'email@email.com', role: 'Role_1' },
+  { id: '19', firstName: '19' }
 ];
 const columns = [
   {
@@ -33,8 +40,23 @@ const columns = [
     text: 'User ID'
   },
   {
-    dataField: 'name',
-    text: 'User Name',
+    dataField: 'firstName',
+    text: 'First Name',
+    sort: true
+  },
+  {
+    dataField: 'lastName',
+    text: 'Last Name',
+    sort: true
+  },
+  {
+    dataField: 'email',
+    text: 'Email',
+    sort: true
+  },
+  {
+    dataField: 'role',
+    text: 'Role',
     sort: true
   }
 ];
@@ -66,31 +88,45 @@ const Users = () => {
 
   return (
     <div className="">
-      {isShow && (
-        <Drawer
-          show={isShow}
-          title="Add User"
-          subtitle="sub title"
-          handleClickCross={() => {
-            setIsShow(false);
-          }}
-          moreOption={[
-            {
-              label: 'Remove',
-              action: () => {
-                console.log('Remove');
-              }
-            }
-          ]}
-        >
-          <AddUser />
-        </Drawer>
-      )}
       {isEmpty(selectedRows) && (
-        <div className="d-flex justify-content-sm-end">
-          <Button variant="primary m-0 mb-3 mt-2" size="large" onClick={() => setIsShow(true)}>
-            <span className="feather icon-plus" /> User
-          </Button>
+        <div className="d-flex justify-content-between">
+          <Form className="row w-100">
+            <Form.Group controlId="listUserRole" className="text-left col-2 pr-0">
+              <Form.Control
+                type="text"
+                placeholder="Search"
+                className="form-control"
+                name="search"
+                //onBlur={handleBlur}
+                onChange={(e) => {
+                  console.log(e);
+                }}
+                //value={values.lastName}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="listUserRole" className="text-left col-2 pr-0 d-none d-lg-block">
+              <Select
+                options={options}
+                onFilterChange={(a, b) => console.log(a, b)}
+                filterLabel="user-role"
+                defaultValueText={'Role search'}
+              />
+            </Form.Group>
+            <Button
+              variant="btn btn-large btn-primary m-0 ml-3 "
+              style={{ maxHeight: '45px' }}
+              size="large"
+              onClick={() => console.log('apply filter')}
+            >
+              <span className="feather icon-filter" /> Apply
+            </Button>
+          </Form>
+          <div className="d-flex justify-content-end" style={{ width: '150px' }}>
+            <Button variant="primary m-0 mb-3 mt-2" size="large" onClick={() => setIsShow(true)}>
+              <span className="feather icon-plus" /> User
+            </Button>
+          </div>
         </div>
       )}
       {!isEmpty(selectedRows) && (
@@ -132,7 +168,7 @@ const Users = () => {
         onPageChangeFun={handleTableChange}
         activePage={pageNumber}
         sizePerPage={pageLimit}
-        wrapperClasses="users-table"
+        wrapperClasses="users-table overflow-auto"
         rowClasses={(row) => {
           return `user-row-${row.id}`;
         }}
@@ -144,6 +180,38 @@ const Users = () => {
         ]}
         selectRow={selectRow}
       />
+      {isShow && (
+        <Drawer
+          show={isShow}
+          title="Add User"
+          subtitle="sub title"
+          handleClickCross={() => {
+            setIsShow(false);
+          }}
+          moreOption={[
+            {
+              label: 'Activate',
+              action: () => {
+                console.log('Activate');
+              }
+            },
+            {
+              label: 'Deactivate',
+              action: () => {
+                console.log('Deactivate');
+              }
+            },
+            {
+              label: 'Remove',
+              action: () => {
+                console.log('Remove');
+              }
+            }
+          ]}
+        >
+          <AddUser />
+        </Drawer>
+      )}
     </div>
   );
 };

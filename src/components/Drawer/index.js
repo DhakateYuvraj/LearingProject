@@ -7,6 +7,7 @@ import './drawer.scss';
 const Drawer = (props) => {
   const { show, title, subtitle = '', backdrop = true, handleClickCross, moreOption = [], children } = props;
 
+  console.log('moreOption', moreOption);
   return (
     <div className="drawer-wrapper">
       {backdrop && <div className="backdrop" onClick={handleClickCross}></div>}
@@ -23,19 +24,20 @@ const Drawer = (props) => {
                   <Dropdown.Toggle variant="link" className="right">
                     <Icon>more_horiz</Icon>
                   </Dropdown.Toggle>
-                  {moreOption.map((item) => {
-                    return (
-                      <Dropdown.Menu>
+                  <Dropdown.Menu>
+                    {moreOption.map((item) => {
+                      return (
                         <Dropdown.Item
+                          key={item.label}
                           onClick={() => {
                             item.action();
                           }}
                         >
                           {item.label}
                         </Dropdown.Item>
-                      </Dropdown.Menu>
-                    );
-                  })}
+                      );
+                    })}
+                  </Dropdown.Menu>
                 </Dropdown>
               )}
 

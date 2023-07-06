@@ -1,6 +1,20 @@
 /**  =====================
       Form Componant css start
 ==========================  **/
+.custom-select {
+  padding: 0 !important;
+  [class*='-placeholder'] {
+    color: hsl(0, 0%, 68%);
+  }
+  [class*='-control'] {
+    background: transparent;
+    height: 100%;
+    border: none;
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+  }
+}
 
 .custom-select,
 .form-control {

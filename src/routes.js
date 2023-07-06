@@ -48,8 +48,23 @@ const routes = [
     routes: [
       {
         exact: true,
-        path: '/usersAndRoles',
-        component: lazy(() => import('./views/usersAndRoles/UsersAndRoles'))
+        path: '/users',
+        component: lazy(() => import('./views/users/Users'))
+      },
+      {
+        exact: true,
+        path: '/students',
+        component: lazy(() => import('./views/students/Students'))
+      },
+      {
+        exact: true,
+        path: '/students/add',
+        component: lazy(() => import('./views/students/AddStudent'))
+      },
+      {
+        exact: true,
+        path: '/classRooms',
+        component: lazy(() => import('./views/classRooms/ClassRooms'))
       },
       {
         exact: true,
