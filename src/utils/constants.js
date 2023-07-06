@@ -4,4 +4,9 @@ const GENDER_OPTIONS = [
   { value: 'other', label: 'Other' }
 ];
 
-export { GENDER_OPTIONS };
+const STATUS_OPTIONS = [
+  { value: 'active', label: 'Active' },
+  { value: 'Deactive', label: 'Deactive' }
+];
+
+export { GENDER_OPTIONS, STATUS_OPTIONS };

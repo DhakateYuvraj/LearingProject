@@ -3,10 +3,8 @@ import Select from 'react-select';
 import isEmpty from 'lodash/isEmpty';
 
 const CustomSelect = (props) => {
-  const { label = '', defaultValueText = '', options, onFilterChange = () => {}, filterLabel = '' } = props;
+  const { defaultValueText = '', options, onFilterChange = () => {}, filterLabel = '' } = props;
   const [value, setValue] = useState([]);
-
-  const showOnlyCountOfMultiSelectedItems = false;
 
   const onSelectChange = (value, actionMeta) => {
     console.log(value, actionMeta);
@@ -30,7 +28,7 @@ const CustomSelect = (props) => {
       }
     }
     return text;
-  }, [value]);
+  }, [value, defaultValueText]);
 
   return (
     <Select

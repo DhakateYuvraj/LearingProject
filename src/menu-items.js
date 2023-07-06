@@ -1,14 +1,80 @@
 const menuItems = {
   items: [
     {
+      id: 'analysis',
+      title: 'Analysis',
+      type: 'group',
+      icon: 'icon-navigation',
+      children: [
+        {
+          id: 'dashboard',
+          title: 'Dashboard',
+          type: 'item',
+          url: '/dashboard',
+          icon: 'feather icon-home'
+        }
+      ]
+    },
+    {
+      id: 'attendance',
+      title: 'Attendance',
+      type: 'group',
+      icon: 'icon-navigation',
+      children: [
+        {
+          id: 'studentAttendance',
+          title: 'Student Attendance',
+          type: 'item',
+          url: '/attendance-student',
+          icon: 'feather icon-home'
+        },
+        {
+          id: 'staffAttendance',
+          title: 'Staff Attendance',
+          type: 'item',
+          url: '/attendance-staff',
+          icon: 'feather icon-home'
+        },
+        {
+          id: 'leaves',
+          title: 'Leaves',
+          type: 'item',
+          url: '/leaves',
+          icon: 'feather icon-home'
+        }
+      ]
+    },
+    {
+      id: 'schedule',
+      title: 'Schedule',
+      type: 'group',
+      icon: 'icon-navigation',
+      children: [
+        {
+          id: 'timetable',
+          title: 'Timetable',
+          type: 'item',
+          url: '/timetable',
+          icon: 'feather icon-home'
+        },
+        {
+          id: 'yearCalendar',
+          title: 'Year Calendar',
+          type: 'item',
+          url: '/yearCalendar',
+          icon: 'feather icon-home'
+        }
+      ]
+    },
+    {
       id: 'config',
       title: 'Config',
       type: 'group',
       icon: 'icon-navigation',
       children: [
         {
-          id: 'users',
-          title: 'Users',
+          id: 'staff',
+          title: 'Staff',
           type: 'item',
           url: '/users',
           icon: 'feather icon-home'
@@ -36,8 +102,8 @@ const menuItems = {
           icon: 'feather icon-home'
         }
       ]
-    },
-    {
+    }
+    /*{
       id: 'navigation',
       title: 'Navigation',
       type: 'group',
@@ -262,7 +328,7 @@ const menuItems = {
           icon: 'feather icon-power'
         }
       ]
-    }
+    }*/
   ]
 };
 

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import isEmpty from 'lodash/isEmpty';
-import Drawer from './../../components/Drawer';
-import StudentAdmission from './StudentAdmission';
+import { useHistory } from 'react-router-dom';
 
-import Table from './../../components/Table';
-import Select from './../../components/Select';
+import Table from '../../components/Table';
+import Select from '../../components/Select';
 
 import './students.scss';
 
@@ -57,11 +56,11 @@ const columns = [
     sort: true
   }
 ];
-const Students = () => {
+const AllStudents = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [pageLimit, setPageLimit] = useState(10);
   const [selectedRows, setSelectedRows] = useState([]);
-  const [isShow, setIsShow] = useState(false);
+  const history = useHistory();
 
   const selectRow = {
     mode: 'checkbox',
@@ -120,8 +119,8 @@ const Students = () => {
             </Button>
           </Form>
           <div className="d-flex justify-content-end" style={{ width: '150px' }}>
-            <Button variant="primary m-0 mb-3 mt-2" size="large" onClick={() => setIsShow(true)}>
-              <span className="feather icon-plus" /> Admission
+            <Button variant="primary m-0 mb-3 mt-2" size="large" onClick={() => history.push('/students/add')}>
+              <span className="feather icon-plus" /> Student
             </Button>
           </div>
         </div>
@@ -177,29 +176,8 @@ const Students = () => {
         ]}
         selectRow={selectRow}
       />
-
-      {isShow && (
-        <Drawer
-          show={isShow}
-          title="Student Admission"
-          subtitle="Assign student to a class room"
-          handleClickCross={() => {
-            setIsShow(false);
-          }}
-          moreOption={[
-            {
-              label: 'Remove Mapping',
-              action: () => {
-                console.log('Remove');
-              }
-            }
-          ]}
-        >
-          <StudentAdmission />
-        </Drawer>
-      )}
     </>
   );
 };
 
-export default Students;
+export default AllStudents;

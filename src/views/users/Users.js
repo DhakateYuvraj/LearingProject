@@ -94,7 +94,7 @@ const Users = () => {
         {isEmpty(selectedRows) && (
           <div className="d-flex justify-content-between">
             <Form className="row w-100">
-              <Form.Group controlId="listUserRole" className="text-left col-2 pr-0">
+              <Form.Group controlId="searchText" className="text-left col-2 pr-0">
                 <Form.Control
                   type="text"
                   placeholder="Search"

@@ -54,7 +54,7 @@ const routes = [
       {
         exact: true,
         path: '/students',
-        component: lazy(() => import('./views/students/Students'))
+        component: lazy(() => import('./views/students/StudentManagment'))
       },
       {
         exact: true,
@@ -64,7 +64,7 @@ const routes = [
       {
         exact: true,
         path: '/classRooms',
-        component: lazy(() => import('./views/classRooms/ClassRooms'))
+        component: lazy(() => import('./views/classRooms/ClassManagment'))
       },
       {
         exact: true,

@@ -56,7 +56,7 @@ const NavRight = () => {
                       <img className="img-radius" src={avatar1} alt="Generic placeholder" />
                       <Media.Body>
                         <p>
-                          <strong>John Doe</strong>
+                          <strong>Yuvi Dhakate</strong>
                           <span className="n-time text-muted">
                             <i className="icon feather icon-clock m-r-10" />
                             30 min
@@ -122,13 +122,15 @@ const NavRight = () => {
             </Dropdown.Menu>
           </Dropdown>
         </ListGroup.Item>
-        <ListGroup.Item as="li" bsPrefix=" ">
-          <Dropdown>
-            <Dropdown.Toggle as={Link} variant="link" to="#" className="displayChatbox" onClick={() => setListOpen(true)}>
-              <i className="icon feather icon-mail" />
-            </Dropdown.Toggle>
-          </Dropdown>
-        </ListGroup.Item>
+        {/*
+<ListGroup.Item as="li" bsPrefix=" ">
+<Dropdown>
+<Dropdown.Toggle as={Link} variant="link" to="#" className="displayChatbox" onClick={() => setListOpen(true)}>
+<i className="icon feather icon-mail" />
+</Dropdown.Toggle>
+</Dropdown>
+</ListGroup.Item>
+*/}
         <ListGroup.Item as="li" bsPrefix=" ">
           <Dropdown alignRight={!rtlLayout} className="drp-user">
             <Dropdown.Toggle as={Link} variant="link" to="#" id="dropdown-basic">
@@ -137,7 +139,7 @@ const NavRight = () => {
             <Dropdown.Menu alignRight className="profile-notification">
               <div className="pro-head">
                 <img src={avatar1} className="img-radius" alt="User Profile" />
-                <span>John Doe</span>
+                <span>Yuvi Dhakate</span>
                 <Link to="#" className="dud-logout" title="Logout">
                   <i className="feather icon-log-out" />
                 </Link>
@@ -145,22 +147,7 @@ const NavRight = () => {
               <ListGroup as="ul" bsPrefix=" " variant="flush" className="pro-body">
                 <ListGroup.Item as="li" bsPrefix=" ">
                   <Link to="#" className="dropdown-item">
-                    <i className="feather icon-settings" /> Settings
-                  </Link>
-                </ListGroup.Item>
-                <ListGroup.Item as="li" bsPrefix=" ">
-                  <Link to="#" className="dropdown-item">
                     <i className="feather icon-user" /> Profile
-                  </Link>
-                </ListGroup.Item>
-                <ListGroup.Item as="li" bsPrefix=" ">
-                  <Link to="#" className="dropdown-item">
-                    <i className="feather icon-mail" /> My Messages
-                  </Link>
-                </ListGroup.Item>
-                <ListGroup.Item as="li" bsPrefix=" ">
-                  <Link to="#" className="dropdown-item">
-                    <i className="feather icon-lock" /> Lock Screen
                   </Link>
                 </ListGroup.Item>
                 <ListGroup.Item as="li" bsPrefix=" ">

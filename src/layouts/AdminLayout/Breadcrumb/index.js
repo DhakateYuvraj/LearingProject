@@ -5,9 +5,25 @@ import { Link } from 'react-router-dom';
 import navigation from '../../../menu-items';
 import { BASE_TITLE, BASENAME } from '../../../config/constant';
 
+const toggleFullScreen = () => {
+  var doc = window.document;
+  var docEl = doc.documentElement;
+
+  var requestFullScreen =
+    docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+  if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+    requestFullScreen.call(docEl);
+  } else {
+    cancelFullScreen.call(doc);
+  }
+};
+
 const Breadcrumb = () => {
   const [main, setMain] = useState([]);
   const [item, setItem] = useState([]);
+  const [fullCard, setFullCard] = useState(false);
 
   useEffect(() => {
     navigation.items.map((item, index) => {
@@ -63,6 +79,15 @@ const Breadcrumb = () => {
             <div className="row align-items-center">
               <div className="col-md-12">
                 <ListGroup as="ul" bsPrefix=" " className="breadcrumb">
+                  <span
+                    className="pr-2 mr-4 btn"
+                    onClick={() => {
+                      toggleFullScreen();
+                      setFullCard(!fullCard);
+                    }}
+                  >
+                    <i className={fullCard ? 'feather icon-minimize' : 'feather icon-maximize'} />
+                  </span>
                   <ListGroup.Item as="li" bsPrefix=" " className="breadcrumb-item">
                     <Link to="/">
                       <i className="feather icon-home" />
@@ -85,7 +110,7 @@ const Breadcrumb = () => {
   }
   console.log('breadcrumbContent', breadcrumbContent);
 
-  return <React.Fragment>{breadcrumbContent}</React.Fragment>;
+  return <> {breadcrumbContent}</>;
 };
 
 export default Breadcrumb;

@@ -20,6 +20,8 @@ File: style.css
         -   Invoice, Full Calender, File Upload,
 =================================================================================
 =================================================================================== */
+
+@import 'bootstrap-daterangepicker/daterangepicker.css';
 @import '~bootstrap/dist/css/bootstrap';
 // General theme contents
 @import 'partials/variables';
@@ -51,6 +53,5 @@ File: style.css
 // Other
 @import 'partials/other/chat';
 @import 'partials/other/chart';
-
 
 @import 'partials/third-party/third-party';

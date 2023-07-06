@@ -28,7 +28,7 @@ const UploadProfilePic = () => {
       )}
       {selectedFile && (
         <div className="image-container mb-2 p-0">
-          <img className="w-100" alt="profile photo" src={preview} />
+          <img className="w-100" alt="profile" src={preview} />
         </div>
       )}
       <Button className="w-100" variant="primary" size="sm" onClick={handleClick}>

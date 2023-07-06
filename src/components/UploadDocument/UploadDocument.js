@@ -26,7 +26,7 @@ const UploadDocument = () => {
       )}
       {selectedFile && (
         <div className="image-container mb-2 p-0">
-          <img className="w-100" alt="profile photo" src={preview} />
+          <img className="w-100" alt="Document" src={preview} />
         </div>
       )}
       <input className="d-none" id="contained-button-file" multiple type="file" ref={inputFile} onChange={onSelectFile} />

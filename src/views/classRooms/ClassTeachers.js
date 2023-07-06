@@ -1,63 +1,44 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import isEmpty from 'lodash/isEmpty';
-import Drawer from './../../components/Drawer';
-import StudentAdmission from './StudentAdmission';
 
 import Table from './../../components/Table';
 import Select from './../../components/Select';
+import Drawer from './../../components/Drawer';
+import AddClassTearcher from './AddClassTeacher';
 
-import './students.scss';
+import './classRooms.scss';
 
-const classOptions = [
-  { value: 'PG-A', label: 'PG-A' },
-  { value: 'PG-B', label: 'PG-B' }
+const academicYearOptions = [
+  { value: '2022-23', label: '2022-23' },
+  { value: '2023-24', label: '2023-24' }
 ];
 
-const studentsData = [
-  { id: '1', firstName: '1', lastName: 'lastName', mobile: '+91 98765 43210', gender: 'Male', class: 'PG-A' },
-  { id: '2', firstName: '2', lastName: 'lastName', mobile: '+91 98765 43210', gender: 'Male', class: 'PG-A' },
-  { id: '3', firstName: '3', lastName: 'lastName', mobile: '+91 98765 43210', gender: 'Male', class: 'PG-A' },
-  { id: '4', firstName: '4', lastName: 'lastName', mobile: '+91 98765 43210', gender: 'Male', class: 'PG-A' },
-  { id: '5', firstName: '5', lastName: 'lastName', mobile: '+91 98765 43210', gender: 'Male', class: 'PG-A' },
-  { id: '6', firstName: '6', lastName: 'lastName', mobile: '+91 98765 43210', gender: 'Male', class: 'PG-B' },
-  { id: '7', firstName: '7', lastName: 'lastName', mobile: '+91 98765 43210', gender: 'Male', class: 'PG-B' },
-  { id: '8', firstName: '8', lastName: 'lastName', mobile: '+91 98765 43210', gender: 'Male', class: 'PG-B' },
-  { id: '9', firstName: '9', lastName: 'lastName', mobile: '+91 98765 43210', gender: 'Male', class: 'PG-B' },
-  { id: '10', firstName: '10', lastName: 'lastName', mobile: '+91 98765 43210', gender: 'Male', class: 'PG-B' }
+const classRoomsData = [
+  { className: 'PG-A', classTeacher: 'Yuvi Dhakate', acedemicYear: '2023-24' },
+  { className: 'PG-B', classTeacher: 'Yuvi Dhakate', acedemicYear: '2023-24' },
+  { className: 'PG-A', classTeacher: 'Yuvi Dhakate', acedemicYear: '2022-23' }
 ];
+
 const columns = [
   {
-    dataField: 'id',
-    text: 'User ID'
-  },
-  {
-    dataField: 'firstName',
-    text: 'First Name',
+    dataField: 'className',
+    text: 'Class Name',
     sort: true
   },
   {
-    dataField: 'lastName',
-    text: 'Last Name',
+    dataField: 'classTeacher',
+    text: 'Class Teacher',
     sort: true
   },
   {
-    dataField: 'mobile',
-    text: 'Mobile',
-    sort: true
-  },
-  {
-    dataField: 'gender',
-    text: 'Gender',
-    sort: true
-  },
-  {
-    dataField: 'class',
-    text: 'Class',
+    dataField: 'acedemicYear',
+    text: 'Acedemic Year',
     sort: true
   }
 ];
-const Students = () => {
+
+const ClassTeachers = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const [pageLimit, setPageLimit] = useState(10);
   const [selectedRows, setSelectedRows] = useState([]);
@@ -84,7 +65,7 @@ const Students = () => {
   };
 
   return (
-    <>
+    <div>
       {isEmpty(selectedRows) && (
         <div className="d-flex justify-content-between">
           <Form className="row w-100">
@@ -104,10 +85,10 @@ const Students = () => {
 
             <Form.Group controlId="listStudentClass" className="text-left col-2 pr-0 d-none d-lg-block">
               <Select
-                options={classOptions}
+                options={academicYearOptions}
                 onFilterChange={(a, b) => console.log(a, b)}
-                filterLabel="student-class"
-                defaultValueText={'Class search'}
+                filterLabel="academic-year"
+                defaultValueText={'Year search'}
               />
             </Form.Group>
             <Button
@@ -119,9 +100,9 @@ const Students = () => {
               <span className="feather icon-filter" /> Apply
             </Button>
           </Form>
-          <div className="d-flex justify-content-end" style={{ width: '150px' }}>
+          <div className="d-flex justify-content-end" style={{ width: '200px' }}>
             <Button variant="primary m-0 mb-3 mt-2" size="large" onClick={() => setIsShow(true)}>
-              <span className="feather icon-plus" /> Admission
+              <span className="feather icon-plus" /> Class Teacher
             </Button>
           </div>
         </div>
@@ -158,7 +139,7 @@ const Students = () => {
       )}
       <Table
         keyField="id"
-        tableData={studentsData}
+        tableData={classRoomsData}
         tableHeader={columns}
         isRemote={false}
         totalSize={99}
@@ -181,25 +162,37 @@ const Students = () => {
       {isShow && (
         <Drawer
           show={isShow}
-          title="Student Admission"
-          subtitle="Assign student to a class room"
+          title="Add Class Teacher"
+          subtitle="Assign a class teacher to the class for academic year."
           handleClickCross={() => {
             setIsShow(false);
           }}
           moreOption={[
             {
-              label: 'Remove Mapping',
+              label: 'Activate',
+              action: () => {
+                console.log('Activate');
+              }
+            },
+            {
+              label: 'Deactivate',
+              action: () => {
+                console.log('Deactivate');
+              }
+            },
+            {
+              label: 'Remove',
               action: () => {
                 console.log('Remove');
               }
             }
           ]}
         >
-          <StudentAdmission />
+          <AddClassTearcher />
         </Drawer>
       )}
-    </>
+    </div>
   );
 };
 
-export default Students;
+export default ClassTeachers;
