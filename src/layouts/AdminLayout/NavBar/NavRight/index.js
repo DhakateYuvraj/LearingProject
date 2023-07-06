@@ -12,12 +12,28 @@ import avatar2 from '../../../../assets/images/user/avatar-2.jpg';
 import avatar3 from '../../../../assets/images/user/avatar-3.jpg';
 import avatar4 from '../../../../assets/images/user/avatar-4.jpg';
 
+const toggleFullScreen = () => {
+  var doc = window.document;
+  var docEl = doc.documentElement;
+
+  var requestFullScreen =
+    docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+  if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+    requestFullScreen.call(docEl);
+  } else {
+    cancelFullScreen.call(doc);
+  }
+};
+
 const NavRight = () => {
   const configContext = useContext(ConfigContext);
   const { logout } = useAuth();
   const { rtlLayout } = configContext.state;
 
   const [listOpen, setListOpen] = useState(false);
+  const [fullCard, setFullCard] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -29,8 +45,17 @@ const NavRight = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <ListGroup as="ul" bsPrefix=" " className="navbar-nav ml-auto" id="navbar-right">
+        <span
+          className="mr-4 btn"
+          onClick={() => {
+            toggleFullScreen();
+            setFullCard(!fullCard);
+          }}
+        >
+          <i className={fullCard ? 'feather icon-minimize' : 'feather icon-maximize'} />
+        </span>
         <ListGroup.Item as="li" bsPrefix=" ">
           <Dropdown alignRight={!rtlLayout}>
             <Dropdown.Toggle as={Link} variant="link" to="#" id="dropdown-basic">
@@ -161,7 +186,7 @@ const NavRight = () => {
         </ListGroup.Item>
       </ListGroup>
       <ChatList listOpen={listOpen} closed={() => setListOpen(false)} />
-    </React.Fragment>
+    </>
   );
 };
 
